@@ -7,3 +7,67 @@
 *::after {
   box-sizing: border-box;
 }
+
+html, body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: white;
+    height: 100%;
+}
+
+header, footer {
+    background-color: rgb(239, 239, 239);
+    width: 100%;
+    padding: 1em;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    height: 4.3em;
+    border-bottom: 1px solid rgb(209, 209, 209);
+    text-align: center;
+}
+
+h1 {
+    font-family: 'Dancing Script', Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 2.25rem;
+    font-weight: bold;
+}
+
+#container {
+    border: 1px solid red; /* remove this */
+    width: 100%;
+    min-height: 100%;
+    margin-top: 6.3em;
+    margin-bottom: 2em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+}
+
+#container article {
+    border: 1px solid red; /* remove this */
+    max-width: calc(500rem/16);
+    width: 100%;
+}
+
+footer {
+    border-top: 1px solid rgb(209, 209, 209);
+    text-align: center;
+}
+
+#copyright {
+    margin-bottom: 0.5em;
+}
+
+#credit {
+    font-size: 0.75rem;
+    line-height: 1rem;
+}
+
+@media only screen and (max-width: calc(500rem/16)) {
+    #container {
+        gap: 0;
+    }
+}
