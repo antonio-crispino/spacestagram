@@ -1,3 +1,180 @@
 /*
  * This CSS file contains the styling for the posts created with the image API.
 */
+
+/* Variables */
+:root {
+    --pad: 0.5rem; /* padding 1 */
+    --pad2: 1rem; /* padding 2 */
+    --rad: 5px; /* border-radius */
+    --bor: 1px solid rgb(209, 209, 209); /* border */
+}
+
+/* Borders for testing */
+#container article * {
+    /* border: 1px solid red; */
+}
+
+/* Article */
+#container article {
+    border-radius: var(--rad);
+    border: var(--bor);
+}
+
+/* Figure */
+#container article figure {
+    border-radius: var(--rad) var(--rad) 0 0;
+    width: 100%;
+    overflow: hidden;
+}
+
+#container article figure img {
+    display: block;
+    border-radius: var(--rad) var(--rad) 0 0;
+    width: 100%;
+    height: auto;
+}
+
+#container article figure figcaption {
+    padding: var(--pad2) var(--pad2) var(--pad) var(--pad2);
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+/* Date and Location */
+#container article .date-location {
+    padding: var(--pad) var(--pad2);
+    font-size: 0.75rem;
+    font-weight: bold;
+}
+
+#container article .date-location time {
+
+}
+
+#container article .date-location span {
+
+}
+
+/* Description */
+#container article .description {
+    padding: var(--pad) var(--pad2);
+}
+
+#container article .description span {
+
+}
+
+/* Comments */
+#container article .comments {
+    padding: var(--pad) var(--pad2);
+    border-top: var(--bor);
+}
+
+#container article .comments span {
+    display: block;
+}
+
+#container article .comments ul {
+    padding-left: var(--pad);
+}
+
+#container article .comments ul li {
+    margin-top: var(--pad);
+}
+
+/* Form */
+#container article .comments form {
+    margin-top: var(--pad);
+    padding-left: var(--pad);
+    display: flex;
+}
+
+#container article .comments form label {
+    display: none;
+    padding-right: var(--pad);
+    font-style: italic;
+}
+
+#container article .comments form input {
+    flex-grow: 1;
+    border-radius: var(--rad) 0 0 var(--rad);
+    border-right-style: none;
+    height: 2rem;
+}
+
+#container article .comments form input:hover, 
+#container article .comments form input:focus {
+    outline: none;
+    border-color: rgb(0, 153, 255);
+}
+
+#container article .comments form .comment {
+    margin-right: var(--pad);
+    border-radius: 0 var(--rad) var(--rad) 0;
+}
+
+/* Buttons */
+button {
+    background-color: rgb(85, 193, 255);
+    font-family: 'Roboto', Verdana, Geneva, Tahoma, sans-serif;
+    border-radius: 5px;
+    font-weight: bold;
+    width: 5rem;
+    height: 2rem;
+}
+
+button:hover, 
+button:focus {
+    background-color: rgb(0, 153, 255);
+}
+
+button:active {
+    background-color: rgb(0, 60, 255);
+    color: white;
+}
+
+#container article .button-container {
+    padding: var(--pad) 1.5rem 1rem var(--pad);
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+#container article .button-container .like {
+
+}
+
+#container article .button-container .comment {
+    
+}
+
+/* Media Queries */
+@media only screen and (max-width: calc(500rem/16)) {
+    #container article {
+        border-width: 0;
+    }
+    #container article .comments form {
+        flex-wrap: wrap;
+    }
+    #container article .comments form label {
+        flex-basis: 100%;
+        padding-bottom: var(--pad);
+    }
+    #container article .button-container {
+        margin-bottom: 1rem;
+    }
+}
+
+@media only screen and (max-width: calc(325rem/16)) {
+    #container article .comments form input {
+        flex-basis: 100%;
+        margin-right: var(--pad);
+        border-radius: var(--rad) var(--rad) 0 0;
+        border-right-style: solid;
+        border-bottom-style: none;
+    }
+    #container article .comments form .comment {
+        flex-basis: 100%;
+        border-radius: 0 0 var(--rad) var(--rad);
+    }
+}

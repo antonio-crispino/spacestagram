@@ -9,7 +9,7 @@
 }
 
 html, body {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: 'Roboto', Verdana, Geneva, Tahoma, sans-serif;
     background-color: white;
     height: 100%;
 }
@@ -35,7 +35,6 @@ h1 {
 }
 
 #container {
-    border: 1px solid red; /* remove this */
     width: 100%;
     min-height: 100%;
     margin-top: 6.3em;
@@ -47,7 +46,6 @@ h1 {
 }
 
 #container article {
-    border: 1px solid red; /* remove this */
     max-width: calc(500rem/16);
     width: 100%;
 }
