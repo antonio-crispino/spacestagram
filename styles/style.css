@@ -1,0 +1,9 @@
+/*
+ * This CSS file contains the basic page styling for the website.
+*/
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
