@@ -5,9 +5,10 @@
 /* Variables */
 :root {
     --pad: 0.5rem; /* padding 1 */
-    --pad2: 1rem; /* padding 2 */
+    --pad2: 1.5rem; /* padding 2 */
     --rad: 5px; /* border-radius */
     --bor: 1px solid rgb(209, 209, 209); /* border */
+    --lighter-text-color: rgb(75, 75, 75); /* Passes WCAG AAA contrast standards (8:1 contrast ratio) */
 }
 
 /* Borders for testing */
@@ -19,6 +20,7 @@
 #container article {
     border-radius: var(--rad);
     border: var(--bor);
+    background-color: rgb(245, 245, 245);
 }
 
 /* Figure */
@@ -36,7 +38,7 @@
 }
 
 #container article figure figcaption {
-    padding: var(--pad2) var(--pad2) var(--pad) var(--pad2);
+    padding: 1rem 1rem var(--pad) 1rem;
     font-size: 1.25rem;
     font-weight: bold;
 }
@@ -44,27 +46,19 @@
 /* Date and Location */
 #container article .date {
     padding: var(--pad) var(--pad2);
-    font-size: 0.75rem;
+    font-size: 0.85rem;
     font-weight: bold;
+    color: var(--lighter-text-color);
 }
 
 #container article .date time {
 
 }
 
-/* Description */
-#container article .description {
-    padding: var(--pad) var(--pad2);
-}
-
-#container article .description span {
-
-}
-
 /* Comments */
 #container article .comments {
     padding: var(--pad) var(--pad2);
-    border-top: var(--bor);
+    color:var(--lighter-text-color);
 }
 
 #container article .comments span {
@@ -76,7 +70,8 @@
 }
 
 #container article .comments ul {
-    padding-left: var(--pad);
+    padding-top: var(--pad);
+    padding-left: var(--pad2);
 }
 
 #container article .comments ul li {
@@ -85,7 +80,7 @@
 
 /* Form */
 #container article .comments form {
-    margin-top: var(--pad);
+    margin-top: var(--pad2);
     padding-left: var(--pad);
     display: flex;
 }
@@ -135,7 +130,7 @@ button:active {
 }
 
 #container article .button-container {
-    padding: var(--pad) 1.5rem 1rem var(--pad);
+    padding: var(--pad) 2rem 1rem var(--pad);
     display: flex;
     flex-direction: row-reverse;
 }

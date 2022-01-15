@@ -9,9 +9,6 @@ const createPost = (obj, liked, numOfComments, comments) => {
             <section class="date">
                 <time>${obj.earth_date}</time>
             </section>
-            <section class="description">
-                <span>${"Description"}</span>
-            </section>
             <section class="comments">
                 <span>Comments (<span id="${obj.id}-comments-num">${numOfComments || 0}</span>)</span>
                 <ul id="${obj.id}-comments">${comments || ''}</ul>
@@ -44,7 +41,8 @@ const likeHandler = (numString) => {
 const commentHandler = (ulId, inputId, numCommentsId) => {
     let ul = document.getElementById(ulId);
     let newComment = document.getElementById(inputId).value;
-    let li = `<li>${newComment}</li>`;
+    let currentDate = new Date().toLocaleDateString('en-US');
+    let li = `<li>[${currentDate}] - ${newComment}</li>`;
     let num = document.getElementById(numCommentsId);
     if (newComment) {
         ul.innerHTML += li;
