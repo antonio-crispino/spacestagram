@@ -50,6 +50,12 @@ h1 {
     width: 100%;
 }
 
+#load-more {
+    display: block;
+    margin: 2rem auto;
+    width: 10rem;
+}
+
 footer {
     border-top: 1px solid rgb(209, 209, 209);
     text-align: center;
@@ -67,5 +73,6 @@ footer {
 @media only screen and (max-width: calc(500rem/16)) {
     #container {
         gap: 0;
+        margin-top: 4.3em;
     }
 }

@@ -42,17 +42,13 @@
 }
 
 /* Date and Location */
-#container article .date-location {
+#container article .date {
     padding: var(--pad) var(--pad2);
     font-size: 0.75rem;
     font-weight: bold;
 }
 
-#container article .date-location time {
-
-}
-
-#container article .date-location span {
+#container article .date time {
 
 }
 
