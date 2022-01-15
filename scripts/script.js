@@ -6,7 +6,7 @@ const LOAD_BUTTON = document.getElementById("load-more");
 let pageCounter = 1;
 
 //Loads the first set of (25) photos
-window.onload = () => sendApiRequest(pageCounter++);
+//window.onload = () => sendApiRequest(pageCounter++);
 
 //Loads the next set of (25) photos, and so on
 LOAD_BUTTON.addEventListener("click", () => sendApiRequest(pageCounter++));
@@ -23,7 +23,9 @@ async function sendApiRequest(page) {
 const addPosts = photos => {
     photos.forEach(photo => {
         let photoIsLiked = localStorage.getItem(`${photo.id}`) !== null;
-        CONTAINER.innerHTML += createPost(photo, photoIsLiked);
+        let numOfComments = localStorage.getItem(`${photo.id}-comments-num`);
+        let comments = localStorage.getItem(`${photo.id}-comments`);
+        CONTAINER.innerHTML += createPost(photo, photoIsLiked, numOfComments, comments);
     });
 };
 

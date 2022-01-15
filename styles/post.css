@@ -71,6 +71,10 @@
     display: block;
 }
 
+#container article .comments span span {
+    display: inline;
+}
+
 #container article .comments ul {
     padding-left: var(--pad);
 }

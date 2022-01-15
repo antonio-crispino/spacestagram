@@ -1,5 +1,5 @@
 //Creates the HTML for a post with a photo and its data
-const createPost = (obj, liked) => {
+const createPost = (obj, liked, numOfComments, comments) => {
     return `
         <article>
             <figure>
@@ -13,12 +13,12 @@ const createPost = (obj, liked) => {
                 <span>${"Description"}</span>
             </section>
             <section class="comments">
-                <span>Comments (${"0"})</span>
-                <ul>${"<li>comments</li>"}</ul>
-                <form action="./index.html" method="PUT">
-                    <label for="comment-field">Enter a comment: </label>
-                    <input type="text" name="comment" id="comment-field" minlength="1" maxlength="250" />
-                    <button class="comment">Comment</button>
+                <span>Comments (<span id="${obj.id}-comments-num">${numOfComments || 0}</span>)</span>
+                <ul id="${obj.id}-comments">${comments || ''}</ul>
+                <form action="./index.html" method="GET" onsubmit="reset(); return false;">
+                    <label for="${obj.id}-comment-field">Enter a comment: </label>
+                    <input type="text" id="${obj.id}-comment-field" name="comment" minlength="1" maxlength="250" />
+                    <button class="comment" onclick="commentHandler('${obj.id}-comments', '${obj.id}-comment-field', '${obj.id}-comments-num')">Comment</button>
                 </form>
             </section>
             <div class="button-container">
@@ -33,9 +33,23 @@ const likeHandler = (numString) => {
     let button = document.getElementById(numString);
     if (localStorage.getItem(numString) === null) {
         button.innerHTML = 'Unlike';
-        localStorage.setItem(numString, "liked");
+        localStorage.setItem(numString, 'liked');
     } else {
         button.innerHTML = 'Like';
         localStorage.removeItem(numString)
+    }
+};
+
+//The "Comment" button event handler function (used in the function above)
+const commentHandler = (ulId, inputId, numCommentsId) => {
+    let ul = document.getElementById(ulId);
+    let newComment = document.getElementById(inputId).value;
+    let li = `<li>${newComment}</li>`;
+    let num = document.getElementById(numCommentsId);
+    if (newComment) {
+        ul.innerHTML += li;
+        localStorage.setItem(ulId, (localStorage.getItem(ulId) || '') + li);
+        localStorage.setItem(numCommentsId, (parseInt(localStorage.getItem(numCommentsId)) || 0) + 1);
+        num.innerHTML = localStorage.getItem(numCommentsId);
     }
 };
