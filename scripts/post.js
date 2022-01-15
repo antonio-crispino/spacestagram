@@ -3,8 +3,8 @@ const createPost = (obj, liked) => {
     return `
         <article>
             <figure>
-                <img src="${obj.img_src}" alt="${""}" />
-                <figcaption>${obj.rover.name}</figcaption>
+                <img src="${obj.img_src}" alt="" ondblclick="likeHandler('${obj.id}')" />
+                <figcaption>${obj.rover.name} Rover - ${obj.camera.full_name}</figcaption>
             </figure>
             <section class="date">
                 <time>${obj.earth_date}</time>
@@ -39,5 +39,3 @@ const likeHandler = (numString) => {
         localStorage.removeItem(numString)
     }
 };
-
-export {createPost};

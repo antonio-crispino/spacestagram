@@ -1,5 +1,3 @@
-import { createPost } from './post.js';
-
 //Declared variables
 const API_KEY = "3sya2GgBeyElbcNiWSSIEevSORr0mWJdzKgcVLDF";
 const website = page => `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&page=${page}&api_key=${API_KEY}`;
