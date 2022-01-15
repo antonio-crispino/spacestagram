@@ -31,3 +31,16 @@ const addPosts = photos => {
 
 // Places the current year in the footer
 document.getElementById("copyright-year").innerHTML = new Date().getFullYear();
+
+
+//REMOVE THIS (only for testing purposes)
+const likeHandle = () => {
+    if (document.getElementById('outline-id').style.display === "block") {
+        document.getElementById('outline-id').style.display = "none";
+        document.getElementById('filled-id').style.display = "block";
+    } else {
+        document.getElementById('outline-id').style.display = "block";
+        document.getElementById('filled-id').style.display = "none";
+    }
+}
+document.getElementById('like-id').addEventListener("click", likeHandle);

@@ -1,25 +1,79 @@
 //Creates the HTML for a post with a photo and its data
 const createPost = (obj, liked, numOfComments, comments) => {
+    const {img_src, id, rover, camera, earth_date} = obj;
     return `
-        <article>
-            <figure>
-                <img src="${obj.img_src}" alt="" ondblclick="likeHandler('${obj.id}')" />
-                <figcaption>${obj.rover.name} Rover - ${obj.camera.full_name}</figcaption>
+        <article class="post">
+            <figure class="nasa-photo-container">
+                <img 
+                    class="nasa-photo" 
+                    src="${img_src}" 
+                    alt="" ondblclick="likeHandler('${id}')" 
+                />
+                <figcaption class="nasa-photo-caption">
+                    ${rover.name} Rover - ${camera.full_name}
+                </figcaption>
             </figure>
-            <section class="date">
-                <time>${obj.earth_date}</time>
+            <section class="nasa-photo-date">
+                <time>${earth_date}</time>
             </section>
-            <section class="comments">
-                <span>Comments (<span id="${obj.id}-comments-num">${numOfComments || 0}</span>)</span>
-                <ul id="${obj.id}-comments">${comments || ''}</ul>
-                <form action="./index.html" method="GET" onsubmit="reset(); return false;">
-                    <label for="${obj.id}-comment-field">Enter a comment: </label>
-                    <input type="text" id="${obj.id}-comment-field" name="comment" minlength="1" maxlength="250" />
-                    <button class="comment" onclick="commentHandler('${obj.id}-comments', '${obj.id}-comment-field', '${obj.id}-comments-num')">Comment</button>
+            <section class="comment-area">
+                <span>Comments 
+                    <span id="${id}-comments-num">
+                        (${numOfComments || 0})
+                    </span>
+                </span>
+                <ul class="comments" id="${id}-comments">
+                    ${comments || ''}
+                </ul>
+                <form 
+                    class="comment-form" 
+                    action="./index.html" 
+                    method="GET" 
+                    onsubmit="reset(); return false;"
+                >
+                    <label for="${id}-comment-field">
+                        Enter a comment: 
+                    </label>
+                    <input 
+                        class="comment-input" 
+                        id="${id}-comment-field" 
+                        type="text" 
+                        name="comment" 
+                        minlength="1" 
+                        maxlength="250" 
+                    />
+                    <button 
+                        class="comment-button" 
+                        onclick="commentHandler(
+                            '${id}-comments', 
+                            '${id}-comment-field', 
+                            '${id}-comments-num'
+                        )"
+                    >
+                        Comment
+                    </button>
                 </form>
             </section>
-            <div class="button-container">
-                <button class="like" id="${obj.id}" onclick="likeHandler('${obj.id}')">${liked ? "Unlike" : "Like"}</button>
+            <div class="like-button-container">
+                <button 
+                    class="like-button" id="${id}" 
+                    onclick="likeHandler('${id}')"
+                >
+                    <img 
+                        class="outline-image" 
+                        id="${id}-outline-id" 
+                        style="display: ${liked ? 'none' : 'block'};" 
+                        src="./icons/heart-svgrepo-com-outline.svg" 
+                        alt="Like" 
+                    />
+                    <img 
+                        class="filled-image" 
+                        id="${id}-filled-id" 
+                        style="display: ${liked ? 'block' : 'none'};" 
+                        src="./icons/heart-svgrepo-com-filled.svg" 
+                        alt="Unlike" 
+                    />
+                </button>
             </div>
         </article>
     `;
@@ -27,12 +81,15 @@ const createPost = (obj, liked, numOfComments, comments) => {
 
 //The "Like" button event handler function (used in the function above)
 const likeHandler = (numString) => {
-    let button = document.getElementById(numString);
+    let outlineImage = document.getElementById(`${numString}-outline-id`);
+    let filledImage = document.getElementById(`${numString}-filled-id`);
     if (localStorage.getItem(numString) === null) {
-        button.innerHTML = 'Unlike';
+        outlineImage.style.display = "none";
+        filledImage.style.display = "block";
         localStorage.setItem(numString, 'liked');
     } else {
-        button.innerHTML = 'Like';
+        outlineImage.style.display = "block";
+        filledImage.style.display = "none";
         localStorage.removeItem(numString)
     }
 };
@@ -48,6 +105,6 @@ const commentHandler = (ulId, inputId, numCommentsId) => {
         ul.innerHTML += li;
         localStorage.setItem(ulId, (localStorage.getItem(ulId) || '') + li);
         localStorage.setItem(numCommentsId, (parseInt(localStorage.getItem(numCommentsId)) || 0) + 1);
-        num.innerHTML = localStorage.getItem(numCommentsId);
+        num.innerHTML = `(${localStorage.getItem(numCommentsId)})`;
     }
 };

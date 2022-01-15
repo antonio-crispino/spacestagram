@@ -35,6 +35,7 @@
     border-radius: var(--rad) var(--rad) 0 0;
     width: 100%;
     height: auto;
+    cursor: pointer;
 }
 
 #container article figure figcaption {
@@ -44,67 +45,67 @@
 }
 
 /* Date and Location */
-#container article .date {
+#container article .nasa-photo-date {
     padding: var(--pad) var(--pad2);
     font-size: 0.85rem;
     font-weight: bold;
     color: var(--lighter-text-color);
 }
 
-#container article .date time {
+#container article .nasa-photo-date time {
 
 }
 
 /* Comments */
-#container article .comments {
+#container article .comment-area {
     padding: var(--pad) var(--pad2);
     color:var(--lighter-text-color);
 }
 
-#container article .comments span {
+#container article .comment-area span {
     display: block;
 }
 
-#container article .comments span span {
+#container article .comment-area span span {
     display: inline;
 }
 
-#container article .comments ul {
+#container article .comment-area ul {
     padding-top: var(--pad);
     padding-left: var(--pad2);
 }
 
-#container article .comments ul li {
+#container article .comment-area ul li {
     margin-top: var(--pad);
 }
 
 /* Form */
-#container article .comments form {
+#container article .comment-area form {
     margin-top: var(--pad2);
     padding-left: var(--pad);
     display: flex;
 }
 
-#container article .comments form label {
+#container article .comment-area form label {
     display: none;
     padding-right: var(--pad);
     font-style: italic;
 }
 
-#container article .comments form input {
+#container article .comment-area form input {
     flex-grow: 1;
     border-radius: var(--rad) 0 0 var(--rad);
     border-right-style: none;
     height: 2rem;
 }
 
-#container article .comments form input:hover, 
-#container article .comments form input:focus {
+#container article .comment-area form input:hover, 
+#container article .comment-area form input:focus {
     outline: none;
     border-color: rgb(0, 153, 255);
 }
 
-#container article .comments form .comment {
+#container article .comment-area form .comment-button {
     margin-right: var(--pad);
     border-radius: 0 var(--rad) var(--rad) 0;
 }
@@ -117,6 +118,7 @@ button {
     font-weight: bold;
     width: 5rem;
     height: 2rem;
+    cursor: pointer;
 }
 
 button:hover, 
@@ -129,18 +131,38 @@ button:active {
     color: white;
 }
 
-#container article .button-container {
+#container article .like-button-container {
     padding: var(--pad) 2rem 1rem var(--pad);
     display: flex;
     flex-direction: row-reverse;
 }
 
-#container article .button-container .like {
-
+#container article .like-button-container .like-button {
+    width: 0;
+    height: 0;
+    margin: 1rem 2rem;
 }
 
-#container article .button-container .comment {
-    
+#container article .like-button-container .like-button img {
+    width: 2rem;
+    height: 2rem;
+    position: relative;
+    top: -1rem;
+    left: -1rem;
+    background-color: rgb(245, 245, 245);
+    transition: transform 0.5s;
+}
+
+#container article .like-button-container .like-button img:hover {
+    transform: scale(1.25);
+}
+
+#container article .like-button-container .like-button .outline-image {
+    display: block;
+}
+
+#container article .like-button-container .like-button .filled-image {
+    display: none;
 }
 
 /* Media Queries */
@@ -148,27 +170,27 @@ button:active {
     #container article {
         border-width: 0;
     }
-    #container article .comments form {
+    #container article .comment-area form {
         flex-wrap: wrap;
     }
-    #container article .comments form label {
+    #container article .comment-area form label {
         flex-basis: 100%;
         padding-bottom: var(--pad);
     }
-    #container article .button-container {
+    #container article .like-button-container {
         margin-bottom: 1rem;
     }
 }
 
 @media only screen and (max-width: calc(325rem/16)) {
-    #container article .comments form input {
+    #container article .comment-area form input {
         flex-basis: 100%;
         margin-right: var(--pad);
         border-radius: var(--rad) var(--rad) 0 0;
         border-right-style: solid;
         border-bottom-style: none;
     }
-    #container article .comments form .comment {
+    #container article .comment-area form .comment-button {
         flex-basis: 100%;
         border-radius: 0 0 var(--rad) var(--rad);
     }
