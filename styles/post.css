@@ -158,7 +158,7 @@
     top: -1rem;
     left: -1rem;
     background-color: var(--post-background-color);
-    transition: transform 0.5s, display 2s;
+    transition: transform 0.5s;
 }
 
 .like-button img:hover {
@@ -179,6 +179,9 @@
         background-color: var(--mobile-background-color);
         border-radius: 0;
         border-style: none;
+    }
+    .nasa-photo:hover {
+        transform: none;
     }
     .like-button img {
         background-color: var(--mobile-background-color);
