@@ -90,7 +90,8 @@
 }
 
 .comments li {
-    margin-top: var(--gap-2);
+    line-height: 1.2rem;
+    margin-top: 0.3rem;
     padding-left: 0.5rem;
 }
 
@@ -118,10 +119,11 @@
 
 .comment-input {
     background-color: rgb(219, 219, 219);
+    border: 0.01rem solid var(--mobile-background-color);
     border-radius: 3rem;
-    border-style: none;
     box-shadow: none;
     font-weight: bold;
+    outline: none;
     padding: 0.5rem 1rem;
     width: 5.9rem;
     transition: width 0.5s;
@@ -129,14 +131,14 @@
 
 .comment-input:hover, 
 .comment-input:focus {
-    border: 0.01rem solid rgb(158, 158, 158);
+    border-color: rgb(158, 158, 158);
     cursor: pointer;
 }
 
 .comment-input:focus {
     cursor: text;
     font-weight: normal;
-    outline: none;
+    
     width: 100%;
 }
 
