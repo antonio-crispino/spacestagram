@@ -4,194 +4,183 @@
 
 /* Variables */
 :root {
-    --pad: 0.5rem; /* padding 1 */
-    --pad2: 1.5rem; /* padding 2 */
-    --rad: 5px; /* border-radius */
-    --bor: 1px solid rgb(209, 209, 209); /* border */
-    --lighter-text-color: rgb(75, 75, 75); /* Passes WCAG AAA contrast standards (8:1 contrast ratio) */
+    --indent-1: 1rem;
+    --indent-2: 1.5rem;
+    --indent-3: 1rem;
+    --radius-1: 1rem;
+    --gap-1: 1rem;
+    --gap-2: 0.5rem;
+    --lighter-text-color: rgb(75, 75, 75); /* Passes WCAG AAA contrast standards */
+    --post-background-color: whitesmoke;
 }
 
 /* Borders for testing */
-#container article * {
+.post * {
     /* border: 1px solid red; */
 }
 
 /* Article */
-#container article {
-    border-radius: var(--rad);
-    border: var(--bor);
-    background-color: rgb(245, 245, 245);
+.post {
+    background-color: var(--post-background-color);
+    border: var(--general-border);
+    border-radius: 1rem;
+    max-width: calc(500rem/16);
+    min-width: calc(230rem/16);
+    padding: 1em;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-1);
 }
 
 /* Figure */
-#container article figure {
-    border-radius: var(--rad) var(--rad) 0 0;
+.nasa-photo-container {
+    border-radius: var(--radius-1) var(--radius-1) 0 0;
     width: 100%;
-    overflow: hidden;
 }
 
-#container article figure img {
-    display: block;
-    border-radius: var(--rad) var(--rad) 0 0;
-    width: 100%;
-    height: auto;
+.nasa-photo {
+    border-radius: var(--radius-1);
     cursor: pointer;
+    display: block;
+    height: auto;
+    margin-bottom: var(--gap-1);
+    width: 100%;
+    transition: transform 0.25s;
 }
 
-#container article figure figcaption {
-    padding: 1rem 1rem var(--pad) 1rem;
+.nasa-photo:hover {
+    transform: scale(1.01);
+}
+
+.nasa-photo-caption {
     font-size: 1.25rem;
     font-weight: bold;
+    line-height: 1.5rem;
+    padding: 0 var(--indent-1);
 }
 
-/* Date and Location */
-#container article .nasa-photo-date {
-    padding: var(--pad) var(--pad2);
-    font-size: 0.85rem;
-    font-weight: bold;
+/* Date */
+.nasa-photo-date {
     color: var(--lighter-text-color);
+    padding: 0 var(--indent-2);
+    font-size: 0.9rem;
+    font-weight: bold;
 }
 
-#container article .nasa-photo-date time {
-
+/* Comments and Like */
+.comment-like-area {
+    color: var(--lighter-text-color);
+    margin-bottom: 0.5rem;
+    padding: 0 var(--indent-2);
 }
 
-/* Comments */
-#container article .comment-area {
-    padding: var(--pad) var(--pad2);
-    color:var(--lighter-text-color);
-}
-
-#container article .comment-area span {
+.comment-like-area span {
     display: block;
+    margin-bottom: var(--gap-2);
 }
 
-#container article .comment-area span span {
+.comment-like-area span span {
     display: inline;
 }
 
-#container article .comment-area ul {
-    padding-top: var(--pad);
-    padding-left: var(--pad2);
+.comments {
+    border-left: 0.15rem solid var(--light-color-3);
+    margin-left: var(--indent-3);
 }
 
-#container article .comment-area ul li {
-    margin-top: var(--pad);
+.comments li {
+    margin-top: var(--gap-2);
+    padding-left: 0.5rem;
 }
 
-/* Form */
-#container article .comment-area form {
-    margin-top: var(--pad2);
-    padding-left: var(--pad);
+.comments li:first-child {
+    margin-top: 0;
+}
+
+/* Comment input and Like button section */
+.comment-like-items {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5rem;
+    padding-top: var(--gap-1);
 }
 
-#container article .comment-area form label {
+/* Comment Form */
+.comment-form {
+    flex-grow: 1;    
+}
+
+.comment-form label {
     display: none;
-    padding-right: var(--pad);
-    font-style: italic;
 }
 
-#container article .comment-area form input {
-    flex-grow: 1;
-    border-radius: var(--rad) 0 0 var(--rad);
-    border-right-style: none;
-    height: 2rem;
-}
-
-#container article .comment-area form input:hover, 
-#container article .comment-area form input:focus {
-    outline: none;
-    border-color: rgb(0, 153, 255);
-}
-
-#container article .comment-area form .comment-button {
-    margin-right: var(--pad);
-    border-radius: 0 var(--rad) var(--rad) 0;
-}
-
-/* Buttons */
-button {
-    background-color: rgb(85, 193, 255);
-    font-family: 'Roboto', Verdana, Geneva, Tahoma, sans-serif;
-    border-radius: 5px;
+.comment-input {
+    background-color: rgb(219, 219, 219);
+    border-radius: 3rem;
+    border-style: none;
+    box-shadow: none;
     font-weight: bold;
-    width: 5rem;
-    height: 2rem;
+    padding: 0.5rem 1rem;
+    width: 5.9rem;
+    transition: width 0.5s;
+}
+
+.comment-input:hover, 
+.comment-input:focus {
+    border: 0.01rem solid rgb(158, 158, 158);
     cursor: pointer;
 }
 
-button:hover, 
-button:focus {
-    background-color: rgb(0, 153, 255);
+.comment-input:focus {
+    cursor: text;
+    font-weight: normal;
+    outline: none;
+    width: 100%;
 }
 
-button:active {
-    background-color: rgb(0, 60, 255);
-    color: white;
+.comment-button {
+    display: none;
 }
 
-#container article .like-button-container {
-    padding: var(--pad) 2rem 1rem var(--pad);
-    display: flex;
-    flex-direction: row-reverse;
-}
-
-#container article .like-button-container .like-button {
-    width: 0;
+/* Like Button */
+.like-button {
     height: 0;
-    margin: 1rem 2rem;
+    width: 0;
+    margin-right: 0.35rem;
 }
 
-#container article .like-button-container .like-button img {
+.like-button img {
     width: 2rem;
     height: 2rem;
     position: relative;
     top: -1rem;
     left: -1rem;
-    background-color: rgb(245, 245, 245);
-    transition: transform 0.5s;
+    background-color: var(--post-background-color);
+    transition: transform 0.5s, display 2s;
 }
 
-#container article .like-button-container .like-button img:hover {
+.like-button img:hover {
     transform: scale(1.25);
 }
 
-#container article .like-button-container .like-button .outline-image {
+.outline-image {
     display: block;
 }
 
-#container article .like-button-container .like-button .filled-image {
+.filled-image {
     display: none;
 }
 
 /* Media Queries */
 @media only screen and (max-width: calc(500rem/16)) {
-    #container article {
-        border-width: 0;
+    .post {
+        background-color: var(--mobile-background-color);
+        border-radius: 0;
+        border-style: none;
     }
-    #container article .comment-area form {
-        flex-wrap: wrap;
-    }
-    #container article .comment-area form label {
-        flex-basis: 100%;
-        padding-bottom: var(--pad);
-    }
-    #container article .like-button-container {
-        margin-bottom: 1rem;
-    }
-}
-
-@media only screen and (max-width: calc(325rem/16)) {
-    #container article .comment-area form input {
-        flex-basis: 100%;
-        margin-right: var(--pad);
-        border-radius: var(--rad) var(--rad) 0 0;
-        border-right-style: solid;
-        border-bottom-style: none;
-    }
-    #container article .comment-area form .comment-button {
-        flex-basis: 100%;
-        border-radius: 0 0 var(--rad) var(--rad);
+    .like-button img {
+        background-color: var(--mobile-background-color);
     }
 }

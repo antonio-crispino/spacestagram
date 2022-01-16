@@ -18,13 +18,13 @@ const createPost = (obj, isLiked, numOfComments, comments) => {
                     alt="" ondblclick="likeHandler('${id}')" 
                 />
                 <figcaption class="nasa-photo-caption">
-                    ${rover.name} Rover - ${camera.full_name}
+                    ${rover.name} Rover <br /> ${camera.full_name}
                 </figcaption>
             </figure>
             <section class="nasa-photo-date">
                 <time>${earth_date}</time>
             </section>
-            <section class="comment-area">
+            <section class="comment-like-area">
                 <span>Comments 
                     <span id="${id}-comments-num">
                         (${numOfComments || 0})
@@ -33,56 +33,59 @@ const createPost = (obj, isLiked, numOfComments, comments) => {
                 <ul class="comments" id="${id}-comments">
                     ${comments || ''}
                 </ul>
-                <form 
-                    class="comment-form" 
-                    action="./index.html" 
-                    method="GET" 
-                    onsubmit="reset(); return false;"
-                >
-                    <label for="${id}-comment-field">
-                        Enter a comment: 
-                    </label>
-                    <input 
-                        class="comment-input" 
-                        id="${id}-comment-field" 
-                        type="text" 
-                        name="comment" 
-                        minlength="1" 
-                        maxlength="250" 
-                    />
-                    <button 
-                        class="comment-button" 
-                        onclick="commentHandler(
-                            '${id}-comments', 
-                            '${id}-comment-field', 
-                            '${id}-comments-num'
-                        )"
+                <div class="comment-like-items">
+                    <form 
+                        class="comment-form" 
+                        action="./index.html" 
+                        method="GET" 
+                        onsubmit="reset(); return false;"
                     >
-                        Comment
-                    </button>
-                </form>
+                        <label for="${id}-comment-field">
+                            Enter a comment: 
+                        </label>
+                        <input 
+                            class="comment-input" 
+                            id="${id}-comment-field" 
+                            type="text" 
+                            name="comment" 
+                            minlength="1" 
+                            maxlength="250" 
+                            placeholder="Comment" 
+                        />
+                        <button 
+                            class="comment-button" 
+                            onclick="commentHandler(
+                                '${id}-comments', 
+                                '${id}-comment-field', 
+                                '${id}-comments-num'
+                            )"
+                        >
+                            Comment
+                        </button>
+                    </form>
+                    <div class="like-button-container">
+                        <button 
+                            class="like-button" id="${id}" 
+                            onclick="likeHandler('${id}')"
+                        >
+                            <img 
+                                class="outline-image" 
+                                id="${id}-outline-id" 
+                                style="display: ${isLiked ? 'none' : 'block'};" 
+                                src="./icons/heart-svgrepo-com-outline.svg" 
+                                alt="Like" 
+                            />
+                            <img 
+                                class="filled-image" 
+                                id="${id}-filled-id" 
+                                style="display: ${isLiked ? 'block' : 'none'};" 
+                                src="./icons/heart-svgrepo-com-filled.svg" 
+                                alt="Unlike" 
+                            />
+                        </button>
+                    </div>
+                </div>
             </section>
-            <div class="like-button-container">
-                <button 
-                    class="like-button" id="${id}" 
-                    onclick="likeHandler('${id}')"
-                >
-                    <img 
-                        class="outline-image" 
-                        id="${id}-outline-id" 
-                        style="display: ${isLiked ? 'none' : 'block'};" 
-                        src="./icons/heart-svgrepo-com-outline.svg" 
-                        alt="Like" 
-                    />
-                    <img 
-                        class="filled-image" 
-                        id="${id}-filled-id" 
-                        style="display: ${isLiked ? 'block' : 'none'};" 
-                        src="./icons/heart-svgrepo-com-filled.svg" 
-                        alt="Unlike" 
-                    />
-                </button>
-            </div>
         </article>
     `;
 };

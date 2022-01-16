@@ -1,12 +1,12 @@
 //Declared variables
 const API_KEY = "3sya2GgBeyElbcNiWSSIEevSORr0mWJdzKgcVLDF";
 const website = (page, date) => `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=${date}&page=${page}&api_key=${API_KEY}`;
-const CONTAINER = document.getElementById("container");
-const LOAD_BUTTON = document.getElementById("load-more");
+const CONTAINER = document.getElementById("posts-container");
+const LOAD_BUTTON = document.getElementById("load-more-button");
 let pageCounter = 1;
 
 //Loads the first set of (25) photos
-//window.onload = () => sendApiRequest(pageCounter++, '2022-01-14');
+window.onload = () => sendApiRequest(pageCounter++, '2022-01-14');
 
 //Loads the next set of (25) photos, and so on
 LOAD_BUTTON.addEventListener("click", () => sendApiRequest(pageCounter++, '2022-01-14'));
