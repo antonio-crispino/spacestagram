@@ -1,5 +1,13 @@
-//Creates the HTML for a post with a photo and its data
-const createPost = (obj, liked, numOfComments, comments) => {
+/**
+ * Creates the HTML for a post - a structure containing a photo and its data
+ * @author  Antonio Crispino - me ;)  <antonioscrispino@gmail.com>
+ * @param   {Object}   obj            The object containing the data of an image from NASA's API
+ * @param   {Boolean}  isLiked        Whether the post is liked (true) or not (false)
+ * @param   {String}   numOfComments  The number of comments on the post, as a string
+ * @param   {String}   comments       The comments of the post
+ * @return  {String}                  The HTM for a post as a string
+ */
+const createPost = (obj, isLiked, numOfComments, comments) => {
     const {img_src, id, rover, camera, earth_date} = obj;
     return `
         <article class="post">
@@ -62,14 +70,14 @@ const createPost = (obj, liked, numOfComments, comments) => {
                     <img 
                         class="outline-image" 
                         id="${id}-outline-id" 
-                        style="display: ${liked ? 'none' : 'block'};" 
+                        style="display: ${isLiked ? 'none' : 'block'};" 
                         src="./icons/heart-svgrepo-com-outline.svg" 
                         alt="Like" 
                     />
                     <img 
                         class="filled-image" 
                         id="${id}-filled-id" 
-                        style="display: ${liked ? 'block' : 'none'};" 
+                        style="display: ${isLiked ? 'block' : 'none'};" 
                         src="./icons/heart-svgrepo-com-filled.svg" 
                         alt="Unlike" 
                     />
@@ -77,34 +85,4 @@ const createPost = (obj, liked, numOfComments, comments) => {
             </div>
         </article>
     `;
-};
-
-//The "Like" button event handler function (used in the function above)
-const likeHandler = (numString) => {
-    let outlineImage = document.getElementById(`${numString}-outline-id`);
-    let filledImage = document.getElementById(`${numString}-filled-id`);
-    if (localStorage.getItem(numString) === null) {
-        outlineImage.style.display = "none";
-        filledImage.style.display = "block";
-        localStorage.setItem(numString, 'liked');
-    } else {
-        outlineImage.style.display = "block";
-        filledImage.style.display = "none";
-        localStorage.removeItem(numString)
-    }
-};
-
-//The "Comment" button event handler function (used in the function above)
-const commentHandler = (ulId, inputId, numCommentsId) => {
-    let ul = document.getElementById(ulId);
-    let newComment = document.getElementById(inputId).value;
-    let currentDate = new Date().toLocaleDateString('en-US');
-    let li = `<li>[${currentDate}] - ${newComment}</li>`;
-    let num = document.getElementById(numCommentsId);
-    if (newComment) {
-        ul.innerHTML += li;
-        localStorage.setItem(ulId, (localStorage.getItem(ulId) || '') + li);
-        localStorage.setItem(numCommentsId, (parseInt(localStorage.getItem(numCommentsId)) || 0) + 1);
-        num.innerHTML = `(${localStorage.getItem(numCommentsId)})`;
-    }
 };
