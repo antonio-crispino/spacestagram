@@ -54,13 +54,13 @@ const createPost = (obj, isLiked, numOfComments, comments) => {
                         />
                         <button 
                             class="comment-button" 
+                            type="submit" 
                             onclick="commentHandler(
                                 '${id}-comments', 
                                 '${id}-comment-field', 
                                 '${id}-comments-num'
                             )"
                         >
-                            Comment
                         </button>
                     </form>
                     <div class="like-button-container">
