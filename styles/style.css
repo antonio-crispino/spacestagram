@@ -13,6 +13,7 @@
     --light-color-1: white;
     --light-color-2: rgb(235, 235, 235);
     --light-color-3: rgb(200, 200, 200);
+    --light-color-4: whitesmoke;
     --main-font: 'Roboto';
     --mobile-background-color: whitesmoke;
 }
@@ -66,7 +67,7 @@ main {
 }
 
 #sub-header {
-    background-color: var(--light-color-1);
+    background-color: var(--light-color-4);
     border-radius: 5rem;
     margin: 0 auto;
     max-width: var(--elements-width);
