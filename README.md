@@ -9,7 +9,7 @@
 - Like button and comment field are animated
 - Hover effects
 
-**Upon observation of the code,** you will notice that it is semantic, clean, concise, organized, modular, documented, and allows for accessibility.
+**Upon observation of the code,** you will notice that it is semantic, clean, concise, organized, modular, documented, and allows for accessibility. Regarding accessibility (a11y): color, contrast, keyboard flow (tab/enter keys), screen readers, responsiveness, and other things were accounted for. I learnt about a11y in my Codecademy "Full-Stack Engineering" course that I'm currently taking on my personal time.
 
 Although I enjoy using the ```React.js``` library to build web apps, I decided to build this website using purely ```HTML```, ```CSS```, and ```JavaScript``` to showcase my abilities without using any libraries or frameworks. I have used ```React.js``` in one of my internships and in one of my academic projects. You can see the details of these on [my LinkedIn profile](https://www.linkedin.com/in/antonio-crispino/ "antonio-crispino"). (Upon request, I can gladly convert this website to a React web application that uses ```SASS```, etc.)
 
