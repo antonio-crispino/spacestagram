@@ -19,7 +19,8 @@ const createPost = (obj, isLiked, numOfComments, comments) => {
                 <img 
                     class="nasa-photo" 
                     src="${img_src}" 
-                    alt="" ondblclick="likeHandler('${id}')" 
+                    alt="A photo taken by the ${rover.name} Rover" 
+                    ondblclick="likeHandler('${id}')" 
                 />
                 <figcaption class="nasa-photo-caption">
                     ${rover.name} Rover <br /> ${camera.full_name}
