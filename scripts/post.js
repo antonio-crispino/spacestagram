@@ -1,4 +1,8 @@
 /**
+ * This file contains the function that creates the HTML for a post
+ */
+
+/**
  * Creates the HTML for a post - a structure containing a photo and its data
  * @author  Antonio Crispino - me ;)  <antonioscrispino@gmail.com>
  * @param   {Object}   obj            The object containing the data of an image from NASA's API

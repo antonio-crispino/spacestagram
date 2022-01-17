@@ -14,11 +14,6 @@
     --post-background-color: whitesmoke;
 }
 
-/* Borders for testing */
-.post * {
-    /* border: 1px solid red; */
-}
-
 /* Article */
 .post {
     background-color: var(--post-background-color);
