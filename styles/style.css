@@ -46,6 +46,11 @@ header {
     height: 4.3rem;
     position: fixed;
     top: 0;
+
+    /* Prevents highlighting */
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
     user-select: none;
 }
 
@@ -73,6 +78,11 @@ main {
     max-width: var(--elements-width);
     padding: 1.5rem;
     text-align: center;
+
+    /* Prevents highlighting */
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
     user-select: none;
 }
 
@@ -95,8 +105,10 @@ button {
     font-weight: bold;
     padding: 0.5rem;
     user-select: none;
-    -webkit-tap-highlight-color: transparent; /* Prevents highlighting in google chrome on mobile */
     transition: background-color 0.5s, color 0.5s;
+
+    /* Prevents highlighting in google chrome on mobile */
+    -webkit-tap-highlight-color: transparent;
 }
 
 button:hover,

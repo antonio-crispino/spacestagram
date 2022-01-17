@@ -20,6 +20,7 @@ const createPost = (obj, isLiked, numOfComments, comments) => {
                     class="nasa-photo" 
                     src="${img_src}" 
                     alt="A photo taken by the ${rover.name} Rover" 
+                    draggable="false" 
                     ondblclick="likeHandler('${id}')" 
                 />
                 <figcaption class="nasa-photo-caption">
@@ -76,16 +77,18 @@ const createPost = (obj, isLiked, numOfComments, comments) => {
                             <img 
                                 class="outline-image" 
                                 id="${id}-outline-id" 
-                                style="display: ${isLiked ? 'none' : 'block'};" 
                                 src="./icons/heart-svgrepo-com-outline.svg" 
-                                alt="Like" 
+                                alt="Unliked" 
+                                style="display: ${isLiked ? 'none' : 'block'};" 
+                                draggable="false" 
                             />
                             <img 
                                 class="filled-image" 
                                 id="${id}-filled-id" 
-                                style="display: ${isLiked ? 'block' : 'none'};" 
                                 src="./icons/heart-svgrepo-com-filled.svg" 
-                                alt="Unlike" 
+                                alt="Liked" 
+                                style="display: ${isLiked ? 'block' : 'none'};" 
+                                draggable="false" 
                             />
                         </button>
                     </div>

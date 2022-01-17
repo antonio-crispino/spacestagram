@@ -40,11 +40,17 @@
     display: block;
     height: auto;
     margin-bottom: var(--gap-1);
-    user-select: none;
-    -webkit-user-drag: none; /* only webkit added for simplicity since this feature is not entirely necessary */
-    -webkit-tap-highlight-color: transparent; /* Prevents highlighting in google chrome on mobile */
     width: 100%;
     transition: transform 0.25s;
+
+    /* Prevents highlighting */
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    /* Prevents highlighting in google chrome on mobile */
+    -webkit-tap-highlight-color: transparent;
 }
 
 .nasa-photo:hover {
@@ -153,29 +159,57 @@
     padding: 0;
 }
 
-/* Like button animations */
+/* Like button animations, with prefixes */
+@-webkit-keyframes to-red-beat {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.25); }
+    100% { transform: scale(1); }
+}
+@-moz-keyframes to-red-beat {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.25); }
+    100% { transform: scale(1); }
+}
+@-ms-keyframes to-red-beat {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.25); }
+    100% { transform: scale(1); }
+}
+@-o-keyframes to-red-beat {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.25); }
+    100% { transform: scale(1); }
+}
 @keyframes to-red-beat {
-    0% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.25);
-    }
-    100% {
-        transform: scale(1);
-    }
+    0% { transform: scale(1); }
+    50% { transform: scale(1.25); }
+    100% { transform: scale(1); }
 }
 
+@-webkit-keyframes to-white-beat {
+    0% { transform: scale(1); }
+    50% { transform: scale(0.75); }
+    100% { transform: scale(1); }
+}
+@-moz-keyframes to-white-beat {
+    0% { transform: scale(1); }
+    50% { transform: scale(0.75); }
+    100% { transform: scale(1); }
+}
+@-ms-keyframes to-white-beat {
+    0% { transform: scale(1); }
+    50% { transform: scale(0.75); }
+    100% { transform: scale(1); }
+}
+@-o-keyframes to-white-beat {
+    0% { transform: scale(1); }
+    50% { transform: scale(0.75); }
+    100% { transform: scale(1); }
+}
 @keyframes to-white-beat {
-    0% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(0.75);
-    }
-    100% {
-        transform: scale(1);
-    }
+    0% { transform: scale(1); }
+    50% { transform: scale(0.75); }
+    100% { transform: scale(1); }
 }
 
 /* Like Button */
@@ -183,7 +217,14 @@
     height: 0;
     width: 0;
     margin-right: 0.35rem;
+
+    /* Prevents highlighting */
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
     user-select: none;
+
+    /* Prevents highlighting in google chrome on mobile */
     -webkit-tap-highlight-color: transparent;
 }
 
@@ -194,16 +235,25 @@
     top: -1rem;
     left: -1rem;
     background-color: var(--post-background-color);
-    -webkit-user-drag: none;
 }
 
 .outline-image {
     display: block;
+
+    -webkit-animation: to-white-beat 0.3s linear;
+    -moz-animation: to-white-beat 0.3s linear;
+    -ms-animation: to-white-beat 0.3s linear;
+    -o-animation: to-white-beat 0.3s linear;
     animation: to-white-beat 0.3s linear;
 }
 
 .filled-image {
     display: none;
+
+    -webkit-animation: to-red-beat 0.5s linear 3;
+    -moz-animation: to-red-beat 0.5s linear 3;
+    -ms-animation: to-red-beat 0.5s linear 3;
+    -o-animation: to-red-beat 0.5s linear 3;
     animation: to-red-beat 0.5s linear 3;
 }
 
