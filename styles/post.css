@@ -107,7 +107,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 1.5rem;
+    gap: 1rem;
     padding-top: var(--gap-1);
 }
 
@@ -125,6 +125,7 @@
     border: 0.01rem solid var(--mobile-background-color);
     border-radius: 3rem;
     box-shadow: none;
+    float: left;
     font-weight: bold;
     outline: none;
     padding: 0.5rem 1rem;
@@ -143,11 +144,18 @@
     cursor: text;
     font-weight: normal;
     text-align: left;
-    width: 100%;
+    width: 97%;
 }
 
 .comment-button {
-    display: none;
+    background-color: black;
+    visibility: hidden;
+    display: block;
+    position: relative;
+    left: -6rem;
+    top: 1rem;
+    margin: 0;
+    padding: 0;
 }
 
 /* Like Button */
