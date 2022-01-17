@@ -1,5 +1,4 @@
 # Spacestagram
-## Image-sharing from the final frontier.
 
 **This website displays photos from NASA's "Mars Rover Photos API". These photos are displayed as posts along with their details. Users can view, like, and comment on these photos.**
 
