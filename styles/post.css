@@ -156,8 +156,7 @@
     width: 0;
     margin-right: 0.35rem;
     user-select: none;
-    -webkit-user-drag: none; /* only webkit added for simplicity since this feature is not entirely necessary */
-    -webkit-tap-highlight-color: transparent; /* Prevents highlighting in google chrome on mobile */
+    -webkit-tap-highlight-color: transparent;
 }
 
 .like-button img {
@@ -167,6 +166,7 @@
     top: -1rem;
     left: -1rem;
     background-color: var(--post-background-color);
+    -webkit-user-drag: none;
     transition: transform 0.5s;
 }
 
