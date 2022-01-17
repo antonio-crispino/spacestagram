@@ -45,6 +45,7 @@
     display: block;
     height: auto;
     margin-bottom: var(--gap-1);
+    user-select: none;
     width: 100%;
     transition: transform 0.25s;
 }
@@ -125,7 +126,8 @@
     font-weight: bold;
     outline: none;
     padding: 0.5rem 1rem;
-    width: 5.9rem;
+    text-align: center;
+    width: 7.5rem;
     transition: width 0.5s;
 }
 
@@ -138,7 +140,7 @@
 .comment-input:focus {
     cursor: text;
     font-weight: normal;
-    
+    text-align: left;
     width: 100%;
 }
 
@@ -160,6 +162,7 @@
     top: -1rem;
     left: -1rem;
     background-color: var(--post-background-color);
+    user-select: none;
     transition: transform 0.5s;
 }
 
