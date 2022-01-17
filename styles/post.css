@@ -158,6 +158,31 @@
     padding: 0;
 }
 
+/* Like button animations */
+@keyframes to-red-beat {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.25);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes to-white-beat {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(0.75);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
 /* Like Button */
 .like-button {
     height: 0;
@@ -175,19 +200,16 @@
     left: -1rem;
     background-color: var(--post-background-color);
     -webkit-user-drag: none;
-    transition: transform 0.5s;
-}
-
-.like-button img:hover {
-    transform: scale(1.25);
 }
 
 .outline-image {
     display: block;
+    animation: to-white-beat 0.3s linear;
 }
 
 .filled-image {
     display: none;
+    animation: to-red-beat 0.5s linear 3;
 }
 
 /* Media Queries */
