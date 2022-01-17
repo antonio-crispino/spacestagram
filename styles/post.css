@@ -46,6 +46,7 @@
     height: auto;
     margin-bottom: var(--gap-1);
     user-select: none;
+    -webkit-tap-highlight-color: transparent; /* Prevents highlighting in google chrome on mobile */
     width: 100%;
     transition: transform 0.25s;
 }
@@ -153,6 +154,8 @@
     height: 0;
     width: 0;
     margin-right: 0.35rem;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent; /* Prevents highlighting in google chrome on mobile */
 }
 
 .like-button img {
@@ -162,7 +165,6 @@
     top: -1rem;
     left: -1rem;
     background-color: var(--post-background-color);
-    user-select: none;
     transition: transform 0.5s;
 }
 

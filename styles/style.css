@@ -93,6 +93,8 @@ button {
     font-family: var(--main-font), var(--backup-fonts);
     font-weight: bold;
     padding: 0.5rem;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent; /* Prevents highlighting in google chrome on mobile */
     transition: background-color 0.5s, color 0.5s;
 }
 
@@ -118,6 +120,15 @@ footer {
 #credit {
     font-size: 0.75rem;
     line-height: 1rem;
+}
+
+a {
+    color: blue;
+    font-weight: bold;
+}
+
+a:visited {
+    color: blue;
 }
 
 @media only screen and (max-width: calc(500rem/16)) {
